@@ -1,0 +1,16 @@
+---
+layout: page
+title: Posts
+hide-header: true
+---
+{% for post in site.posts %}
+<article>
+	<header>
+		<h1>
+			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+		</h1>
+		<time datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
+	</header>
+	{{ post.excerpt }}
+</article>
+{% endfor %}

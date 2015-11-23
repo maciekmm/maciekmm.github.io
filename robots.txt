@@ -1,0 +1,4 @@
+---
+layout: null
+---
+sitemap: {{ site.url | replace: 'https', 'http' | append: '/sitemap.xml' }}
