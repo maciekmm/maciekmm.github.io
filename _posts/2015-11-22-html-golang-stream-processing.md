@@ -85,12 +85,12 @@ Lets see some graphs comparing both ways of scraping.
 
 Small site
 <hr>
-![](http://i.maciekmm.net/cpu-usage-1)
-![](http://i.maciekmm.net/mem-usage)
+![](https://i.maciekmm.net/cpu-usage-1)
+![](https://i.maciekmm.net/mem-usage)
 Medium site
 <hr>
-![](http://i.maciekmm.net/cpu-usage-2)
-![](http://i.maciekmm.net/mem-usage-2)
+![](https://i.maciekmm.net/cpu-usage-2)
+![](https://i.maciekmm.net/mem-usage-2)
 
 
 These graph represents memory and cpu usage of time while creating a sitemap for small and medium sized sites using stream processing.
