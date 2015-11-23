@@ -5,13 +5,15 @@ omit-title-tag: true
 hide-header: true
 ---
 {% for post in site.posts %}
-<article>
+<article itemscope itemtype="http://schema.org/BlogPosting">
 	<header>
-		<h1>
+		<h1 itemprop="name headline">
 			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 		</h1>
-		<time datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
+		<time itemprop="dateCreated" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
 	</header>
-	{{ post.excerpt }}
+	<div itemprop="description">
+		{{ post.excerpt }}
+	</div>
 </article>
 {% endfor %}
