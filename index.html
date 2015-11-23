@@ -10,7 +10,7 @@ hide-header: true
 		<h1 itemprop="name headline">
 			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 		</h1>
-		<time itemprop="dateCreated" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
+		<time itemprop="datePublished" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
 	</header>
 	<div itemprop="description">
 		{{ post.excerpt }}
