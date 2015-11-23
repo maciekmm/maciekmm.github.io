@@ -152,6 +152,9 @@ main {
 		ul,ol {
 			list-style-position: inside;
 		}
+		ul ul, ol ol, ul ol, ol ul {
+			margin-left: 20px;
+		}
 		.highlight {
 			margin: 5px 0;
 			padding: 5px;
