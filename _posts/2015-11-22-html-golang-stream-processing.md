@@ -2,7 +2,12 @@
 layout: post
 title:  "Parsing HTML with Go using stream processing"
 date:   2015-11-22 17:21:09 +0100
-categories: go steam-processing web
+tags:
+ - go
+ - stream-processing
+ - web
+categories:
+ - go
 comments: true
 ---
 

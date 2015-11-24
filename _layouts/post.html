@@ -4,6 +4,11 @@ layout: default
 <article itemscope itemtype="http://schema.org/BlogPosting">
 	<h1 itemprop="name headline">{{ page.title }}</h1>
 	<time itemprop="datePublished" datetime="{{page.date | date: "%Y-%m-%d"}}">{{ page.date | date: "%b %-d, %Y" }}</time>
+	<ul class="cats" itemprop="keywords">
+		{% for cat in page.tags %}
+			<li>{{ cat }}</li>
+		{% endfor %}
+	</ul>
 	<div itemprop="articleBody">
 	{{ content }}
 	</div>

@@ -11,6 +11,11 @@ hide-header: true
 			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 		</h1>
 		<time itemprop="datePublished" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
+		<ul class="cats" itemprop="keywords">
+			{% for cat in post.tags %}
+				<li>{{ cat }}</li>
+			{% endfor %}
+		</ul>
 	</header>
 	<div itemprop="description">
 		{{ post.excerpt }}

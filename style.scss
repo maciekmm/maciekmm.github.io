@@ -155,6 +155,23 @@ main {
 		ul ul, ol ol, ul ol, ol ul {
 			margin-left: 20px;
 		}
+
+		time, .cats {
+			display:inline-block;
+			list-style: none;
+			vertical-align: middle;
+		}
+
+		.cats li {
+			display:inline-block;
+			background: lighten($text_color,60%);
+			border-radius: 5px;
+			padding: 1px 5px;
+			font-size: 9pt;
+
+			margin: 5px;
+		}
+
 		.highlight {
 			margin: 5px 0;
 			padding: 5px;
