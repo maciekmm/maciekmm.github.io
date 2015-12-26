@@ -10,7 +10,7 @@ categories:
 comments: true
 ---
 
-Go doesn't support generics, one can use `go generate`, but writing code for that is a pain. Instead we can tinker with reflection to manipulate types and channels. This allows us to create neat event dispatcher with user friendly handler registration and somewhat reasonable event registration.
+Go doesn't support generics, one can use `go generate`, but writing code for that is a pain. Instead we can tinker with reflection to manipulate types and channels. This allows us to create neat event **dispatcher** with user friendly handler registration and somewhat reasonable event registration.
 
 Event emitters are pretty popular in OOP languages which support generics, but of course Go is not one of them. We will try to achieve something similar without generic types.
 
@@ -18,7 +18,7 @@ Event emitters are pretty popular in OOP languages which support generics, but o
 
 We want to have a solution that is as user friendly as possible and thread-safe. Let's bring some code fragments to show how easy it can be.
 
-### Listener Registration:
+### Listener Registration
 
 ```go
 channel := make(chan SomethingHappened, 5)
@@ -31,7 +31,7 @@ for {
 }
 ```
 
-### Event Registration:
+### Event Registration
 
 Well, we can omit this part and have registering a listener register an event as well, but doing it this way is more verbose and adds possibility for returning bool value or error if the operation fails. It also makes it possible to unregister the event.
 
@@ -152,8 +152,6 @@ I've written a simple app to use the event handler. I made a buffered channel wi
 - [playground](http://play.golang.org/p/gqk9PxK5I8)
 
 Hit run and wait for output.
-
-<iframe src="http://play.golang.org/p/gqk9PxK5I8" frameborder="0" style="width: 100%; height: 300px"><a href="http://play.golang.org/p/gqk9PxK5I8">see this code in play.golang.org</a></iframe>
 
 As you can see two out of three messages were passed due to two element channel and synchronous receiving, cloning works and it dispatches successfully. 
 
