@@ -4,7 +4,8 @@ title:  "Generic event emitter/dispatcher in Go"
 date:   2015-12-26 12:00:00 +0100
 tags:
  - go
- - event
+ - reflect
+ - events
 categories:
  - go
 comments: true
@@ -149,9 +150,10 @@ For my needs I've added a `Clone()` method to Event interface. This requires eve
 ## Tests
 
 I've written a simple app to use the event handler. I made a buffered channel with two elements to see what happens if channel is overflowed and a struct with string pointer so we can test cloning.
+
 - [playground](http://play.golang.org/p/gqk9PxK5I8)
 
-Hit run and wait for output.
+Hit run and wait for an output.
 
 As you can see two out of three messages were passed due to two element channel and synchronous receiving, cloning works and it dispatches successfully. 
 
