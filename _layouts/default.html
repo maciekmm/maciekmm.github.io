@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel='alternate' type='application/atom+xml' title="maciekmm.net" href='{{ site.url }}/feed.xml'>
-	<meta name="description" content="{% if post.excerpt  %}{{ post.excerpt }}{% else %}{{ site.description }}{% endif %}">
+	<meta name="description" content="{% if page.excerpt  %}{{ page.excerpt | strip_html}}{% else %}{{ site.description }}{% endif %}">
 	<title>
 		{% if page.omit-title-tag %} {{ site.title |strip_html }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title |strip_html }}{% endif %}</title>
 	<link rel="stylesheet" href="{{ site.baseurl }}/style.css">
