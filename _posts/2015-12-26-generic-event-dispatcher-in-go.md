@@ -21,7 +21,7 @@ We want to have a solution that is as user friendly as possible and thread-safe.
 
 ### Listener Registration
 
-```go
+~~~go
 channel := make(chan SomethingHappened, 5)
 ok := dispatcher.RegisterListener(channel) //This registers a listener for event - SomethingHappened
 for {
@@ -30,15 +30,15 @@ for {
 	//Do something with it (already SomethingHappened type)	
 	}
 }
-```
+~~~
 
 ### Event Registration
 
 Well, we can omit this part and have registering a listener register an event as well, but doing it this way is more verbose and adds possibility for returning bool value or error if the operation fails. It also makes it possible to unregister the event.
 
-```go
+~~~go
 ok := dispatcher.RegisterEvent((*SomethingHappened)(nil)) //Magical nil pointer
-```
+~~~
 
 ## Development
 
@@ -46,7 +46,7 @@ ok := dispatcher.RegisterEvent((*SomethingHappened)(nil)) //Magical nil pointer
 
 We need some way of storing event -> listeners relations, map is the perfect fit for that. *Un*fortunately, it is not thread-safe, therefore we need some mutex, I'll go with [RWMutex](https://golang.org/pkg/sync/#RWMutex) to not hit performance much. We also don't want anyone to tinker with it, so we don't export fields and it's why doing a factory is mandatory.
 
-```go
+~~~go
 type Event interface {
 	//Some methods here
 }
@@ -62,12 +62,12 @@ func NewDispatcher() *Dispatcher {
 		lock:     &sync.RWMutex{},
 	}
 }
-```
+~~~
 `map[reflect.Type][]reflect.Value` is probably something that caught your attention. During runtime It's a channel accepting specific event and I've decided to store `reflect.Value` instead of an `interface{}` because it has direct [function(s)](https://golang.org/pkg/reflect/#Value.TrySend) to send data through channels. Now that we have the basic architecture covered, let's move to more *magic* stuff.
 
 ### Event Registration
 
-```go
+~~~go
 func (d *Dispatcher) RegisterEvent(event Event) bool {
 	d.lock.Lock()
 	defer d.lock.Unlock()
@@ -79,10 +79,10 @@ func (d *Dispatcher) RegisterEvent(event Event) bool {
 	d.handlers[typ] = chanArr
 	return true
 }
-```
+~~~
 Let's start with function parameter. As you can see we accept an interface. Intuition may suggest that `reflect.Type` should be accepted, but that would result in very ugly event registration: `reflect.TypeOf((*SomethingHappened)(nil)).Elem()`. This is definitely something we need to avoid. Where the *magic* mentioned happens is `typ := reflect.TypeOf(event).Elem()`. Let's quickly walk through that:
 
-```cucumber
+~~~cucumber
 Given the input is (*SomethingHappened)(nil):
 	When reflect.TypeOf(input) is called
 	Then *SomethingHappened is returned
@@ -90,7 +90,7 @@ Given the input is (*SomethingHappened)(nil):
 Given the input is *SomethingHappened:
 	When Elem() is called
 	Then SomethingHappened is returned
-```
+~~~
 
 Some perceptive people could spot a reference to [cucumber](https://cucumber.io/) - Even though I don't use it (you can probably spot like 10 errors in above *walk-through*) I love the idea :)
 
@@ -98,7 +98,7 @@ If you didn't understand the aforementioned scenerio, `TypeOf()` returns the mos
 
 ### Listener Registration
 
-```go
+~~~go
 // RegisterListener registers channel accepting desired event - a listener.
 // It is important to note that what channel accepts determines what will be sent to it.
 // If listened event is not registered false is returned
@@ -119,13 +119,13 @@ func (d *Dispatcher) RegisterListener(pipe interface{}) bool {
 	}
 	return false
 }
-```
+~~~
 
 When registering a Listener we need to be more careful with what we operate on, storing non-channel value in map would cause dispatch loop to panic and that's definitely something we need to avoid. The code is really similar to one that registers an event. One interesting thing happens here though - I don't inline calls if something is called more than once. I have to admit I was lazy and didn't check if getting `reflect.Type` from `reflect.Value` comes with noticable performance cost, so I made additional variable to *cache* it, forgive me. Well, the main point is to show that you need to be very careful when working with [reflect](https://golang.org/pkg/reflect) package or reflection in general in any language.
 
 ### Dispatch Loop
 
-```go
+~~~go
 // Dispatch provides thread safe method to send event to all listeners
 // Returns true if succeeded and false if event was not registered
 func (d *Dispatcher) Dispatch(event Event) bool {
@@ -141,7 +141,7 @@ func (d *Dispatcher) Dispatch(event Event) bool {
 	}
 	return false
 }
-```
+~~~
 This function is pretty straight-forward. We read lock our dispatcher, get event's type, look it up and send to every listener. It has one really major drawback though - the same copy is sent to every listener, therefore we either need to expose functions that clone props on the fly or clone the whole struct ourselves. This is the trickiest part, and there's no *right* answer for that.
 For my needs I've added a `Clone()` method to Event interface. This requires every struct that inherits any `Clone()` function - from anonymous fields for instance to override that function. Let's call the clone method then:
 

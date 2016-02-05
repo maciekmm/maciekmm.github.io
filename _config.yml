@@ -13,9 +13,13 @@ baseurl: ""
 url: "https://maciekmm.net"
 
 # Build settings
-highlighter: pygments
-markdown: redcarpet
-markdown_ext:  markdown,mkdown,mkdn,mkd,md
+highlighter: rouge
+markdown: kramdown
+markdown_ext:  mkd,md
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 permalink: /:title
 

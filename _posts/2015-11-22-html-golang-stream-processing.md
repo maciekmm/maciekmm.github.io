@@ -21,9 +21,9 @@ More often than not the flow looks like this:
 2. Parse whole body into `html.Node` using `html.Parse()`
 3. Iterate over parsed tree and process data
 
-Code ~~stolen~~ borrowed from [golang docs](https://godoc.org/golang.org/x/net/html):
+Code <s>stolen</s> borrowed from [golang docs](https://godoc.org/golang.org/x/net/html):
 
-```go
+~~~go
 doc, err := html.Parse(r)
 if err != nil {
 	// ...
@@ -38,7 +38,7 @@ f = func(n *html.Node) {
 	}
 }
 f(doc)
-```
+~~~
 
 And while very handy it comes with some disadvantages, namely:
 
@@ -54,7 +54,7 @@ So instead of waiting for not always blazing fast servers to send us whole file,
 
 Lets bring some really simple example, once again from my [sitemap-generator](https://github.com/maciekmm/sitemap-generator):
 
-```go
+~~~go
 doc := html.NewTokenizer(resp.Body)
 for tokenType := doc.Next(); tokenType != html.ErrorToken; {
 	token := doc.Token()
@@ -74,7 +74,7 @@ for tokenType := doc.Next(); tokenType != html.ErrorToken; {
 	tokenType = doc.Next()
 }
 resp.Body.Close()
-```
+~~~
 
 As you can see, instead of going through elements one by one, we work on tokens. Calling `doc.Next()` makes it parse another token.
 
