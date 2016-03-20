@@ -221,6 +221,12 @@ main {
 			padding: 2px;
 			word-wrap: break-word;
 		}
+		
+		blockquote {
+
+			padding-left: 5px;
+			border-left: 5px solid #ddd;
+		}
 }
 
 
