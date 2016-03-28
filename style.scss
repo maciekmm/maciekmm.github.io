@@ -2,6 +2,7 @@
 ---
 
 $text_color: #555;
+$background_color: #fff;
 $link_color: lighten(#3498db, 10%);
 
 @font-face {
@@ -51,7 +52,7 @@ html {
 
 body {
 	color: $text_color;
-	background-color: #fff;
+	background-color: $background_color;
 	max-width: 700px;
 	margin: 10% auto 0 auto;
 	padding: 0 5px;
@@ -118,7 +119,16 @@ a {
 	ul {
 		list-style: none;
 		font-size: 16pt;
+		
+		li {
+			display: inline-block;
+
+		}
+		
 		a {
+			&::before {
+				content:'»';
+			}
 			color: lighten($text_color, 25%);
 		}
 	}
@@ -174,14 +184,14 @@ main {
 			padding: 1px 5px;
 			font-size: 9pt;
 
-			margin: 5px;
+			margin: 3px;
 		}
 
 		.highlight {
 			margin: 5px 0;
 			padding: 5px;
-			border: 1px solid darken(#fff, 5%);
-			background: darken(#fff, 3%);
+			border: 1px solid darken($background_color, 5%);
+			background: darken($background_color, 3%);
 			font-family: monospace;
 			font-size: 10pt;
 			line-height: 1.4;
@@ -216,19 +226,52 @@ main {
 		
 		code {
 			font-size: 10pt;
-			background: darken(#fff, 3%);
+			background: darken($background_color, 3%);
 			border-radius: 5px;
 			padding: 2px;
 			word-wrap: break-word;
 		}
 		
 		blockquote {
-
 			padding-left: 5px;
-			border-left: 5px solid #ddd;
+			border-left: 5px solid darken($background_color,10%);
 		}
 }
 
+.portfolio {
+	
+	blockquote {
+		font-style: italic;
+		border: 0;
+	}
+	
+	article, blockquote {
+		width: 50%;
+		display: inline-block;
+		vertical-align: top;
+		padding: 20px 10px;
+		
+		h1{
+			font-size: 14pt;
+			display: inline;
+			vertical-align: middle;
+		}
+		
+		footer {
+			color: lighten($text_color, 10%);
+			font-size: 10pt;
+		}
+		
+		@media screen and (max-width: 600px) {
+			width: 100%;
+			padding: 10px;
+		}
+	}
+	
+	p {
+		font-size: 10pt;
+	}
+}
 
 .hll { background-color: #ffffcc }
 .c { color: #0099FF; font-style: italic } /* Comment */

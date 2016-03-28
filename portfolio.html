@@ -1,0 +1,19 @@
+---
+layout: page
+title: Portfolio
+sitemap: true
+hide-header: true
+---
+<section class="portfolio">
+	<h1>References</h1>
+	{% for reference in site.data.references %}<blockquote>
+		<p>{{reference.reference}}</p>
+		<footer>{{reference.author}}</footer>
+	</blockquote>{% endfor %}
+</section>
+{% for category in site.data.portfolio.categories %}
+<section class="portfolio">
+<h1>{{category.name}}</h1>
+{% for pro in category.projects %}{% include project.html project=pro %}{% endfor %}
+</section>
+{% endfor %}

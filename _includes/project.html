@@ -1,0 +1,6 @@
+<article itemscope itemtype="http://schema.org/CreativeWork">
+	<h1 itemprop="name">{% if include.project.href %}<a href="{{ include.project.href }}">{% endif %}{{ include.project.name }}{% if include.project.href %}</a>{% endif %}</h1><ul class="cats" itemprop="http://schema.org/keywords">
+		{% for tech in include.project.tech %}<li>{{tech}}</li>{% endfor %}	
+	</ul>
+	<p itemprop="description">{{ include.project.excerpt }}</p>
+</article>
