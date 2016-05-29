@@ -1,6 +1,14 @@
 categories:
   - name: Backend
     projects:
+      - name: Messenger Platform SDK
+        tech: ["Go"]
+        href: https://github.com/maciekmm/messenger-platform-go-sdk
+        excerpt: With the recent release of <a href="https://developers.facebook.com/docs/messenger-platform/">Facebook Messenger Platform</a> I decided to make a Go SDK for easier bot development. 
+      - name: Route4Me SDK
+        tech: ["Go"]
+        href: https://github.com/route4me/route4me-go-sdk
+        excerpt: My goal was to create a SDK to wrap <a href="http://route4me.com/">route4me</a> REST API for easier route optimization using Go language. High integration test coverage and wiki were required.
       - name: Monitoring system
         tech: ["Go","AWS"]
         href: https://pricerat.io
