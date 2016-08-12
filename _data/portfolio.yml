@@ -1,10 +1,14 @@
 categories:
   - name: Backend
     projects:
+      - name: Dynatrace Server SDK
+        tech: ["Java"]
+        href: https://github.com/Dynatrace/Dynatrace-Server-REST-Java-SDK
+        excerpt: An <a href="https://github.com/Dynatrace/Dynatrace-Server-REST-Java-SDK">open source</a> library providing an easy to use Java implementation of Dynatrace Server REST API. Developed during 2 months long summer internship at <a href="https://dynatrace.com">Dynatrace</a>.
       - name: Messenger Platform SDK
         tech: ["Go"]
         href: https://github.com/maciekmm/messenger-platform-go-sdk
-        excerpt: With the recent release of <a href="https://developers.facebook.com/docs/messenger-platform/">Facebook Messenger Platform</a> I decided to make a Go SDK for easier bot development. 
+        excerpt: An <a href="https://github.com/maciekmm/messenger-platform-go-sdk">open source</a>, feature complete Go implementation of <a href="https://developers.facebook.com/docs/messenger-platform/">Facebook Messenger Platform</a> with an easy to use interface helping developers develop chat bots quick.
       - name: Route4Me SDK
         tech: ["Go"]
         href: https://github.com/route4me/route4me-go-sdk
@@ -17,6 +21,10 @@ categories:
         tech: ["Go","Streaming"]
         href: https://github.com/maciekmm/sitemap-generator
         excerpt: An <a href="https://github.com/maciekmm/sitemap-generator">open source</a> project for generating xml sitemaps. Utilizes stream processing paradigm, which I've written a <a href="">blog post</a> about.
+      - name: Dynatrace CodeLink Wrapper
+        tech: ["Java"]
+        href: https://github.com/Dynatrace/Dynatrace-CodeLink-Java
+        excerpt: An <a href="https://github.com/Dynatrace/Dynatrace-CodeLink-Java">open source</a> library providing an easy to use Java implementation of <a href="https://dynatrace.com">Dynatrace</a> Client's source lookup feature. Developed during 2 months long summer internship at <a href="https://dynatrace.com">Dynatrace</a>.
   - name: Frontend
     projects:
       - name: VLO Student App
@@ -29,6 +37,10 @@ categories:
         excerpt: 'An <a href="https://github.com/maciekmm/CurveSignatures">open source</a> forum signature generator made for a popular browser game: <a href="https://curvefever.com">CurveFever</a>. Uses <a href="https://code.google.com/p/draw2d/draw2d">Draw2d</a> for image generation, <a href="https://github.com/maciekmm/curveapi">CurveApi</a> as data source.</a>'
   - name: Addons/Extensions
     projects:
+      - name: Dynatrace IntelliJ IDEA Plugin
+        href: https://community.dynatrace.com/community/display/DL/IntelliJ+IDEA+Integration+Plugin
+        tech: ["Java", "IntelliJ Platform"]
+        excerpt: An <a href="https://github.com/Dynatrace/Dynatrace-IntelliJ-IDEA-Integration-Plugin">open source</a> IntelliJ IDEA plugin, developed during 2 months long summer internship at <a href="https://dynatrace.com">Dynatrace</a>, providing an integration with company's flagship product.
       - name: FindAnyEmail
         href: http://findanyemail.net
         tech: ["Javascript","Google Apps"]
@@ -36,7 +48,7 @@ categories:
       - name: Easy-Signup
         href: https://chrome.google.com/webstore/detail/easy-signup/ohgmgkebnpeehlecbihighebdoocokfo
         tech: ["Javascript","Chrome"]
-        excerpt: <a href="https://github.com/maciekmm/easy-signup">Open source</a> Chrome extension made for making signing up easier by prefilling forms. Supports variables such as website name.
+        excerpt: An <a href="https://github.com/maciekmm/easy-signup">open source</a> Chrome extension made for making signing up easier by prefilling forms. Supports variables such as website name.
   - name: Minecraft
     projects:
       - name: AnimatedMOTD
