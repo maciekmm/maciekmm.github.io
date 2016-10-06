@@ -5,9 +5,9 @@ permalink: /portfolio/
 hide-header: true
 ---
 <section class="portfolio">
-	<h1>References</h1>
-	{% for reference in site.data.references %}<blockquote>
-		<p>{{reference.reference}}</p>
+	<h1>Recommendations</h1>
+	{% for reference in site.data.recommendations %}<blockquote>
+		<p>{{reference.recommendation}}</p>
 		<footer>{{reference.author}}</footer>
 	</blockquote>{% endfor %}
 </section>
