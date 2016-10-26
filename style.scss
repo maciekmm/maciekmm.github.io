@@ -165,7 +165,8 @@ main {
 		}
 		
 		ul,ol {
-			list-style-position: inside;
+			list-style-position: outside;
+			margin-left: 20px;
 		}
 		
 		ul ul, ol ol, ul ol, ol ul {
