@@ -10,7 +10,7 @@ title: Maciej<span class="lowlight">'s blog</span>
 email: business@maciekmm.net
 description: "Maciej maciekmm Mionskowski - golang developer, backend systems, webscraping, java development."
 baseurl: ""
-url: "https://maciekmm.net"
+url: "https://mionskowski.pl"
 
 # Build settings
 highlighter: rouge
