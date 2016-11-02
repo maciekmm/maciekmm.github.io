@@ -7,8 +7,8 @@
 
 # Site settings
 title: Maciej<span class="lowlight">'s blog</span>
-email: business@maciekmm.net
-description: "Maciej maciekmm Mionskowski - golang developer, backend systems, webscraping, java development."
+email: business@mionskowski.pl
+description: "Maciej maciekmm Mionskowski - go, backend systems, webscraping, java development."
 baseurl: ""
 url: "https://mionskowski.pl"
 
