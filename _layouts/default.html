@@ -1,39 +1,47 @@
 <!doctype html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel='alternate' type='application/atom+xml' title="mionskowski.pl" href='{{ site.url }}/feed.xml'>
+	<link rel="alternate" type="application/atom+xml" title="mionskowski.pl" href="{{ site.url }}/feed.xml">
 	<meta name="description" content="{% if page.excerpt  %}{{ page.excerpt | strip_html}}{% else %}{{ site.description }}{% endif %}">
 	<title>
-		{% if page.omit-title-tag %} {{ site.title |strip_html }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title |strip_html }}{% endif %}</title>
+		{% if page.omit-title-tag %} {{ site.title |strip_html }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title
+		|strip_html }}{% endif %}</title>
 	<link rel="stylesheet" href="{{ site.baseurl }}/style.css">
 	<script type="text/javascript">
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		  ga('create', 'UA-54313520-1', 'auto');
-		  ga('send', 'pageview');
+		(function (i, s, o, g, r, a, m) {
+		i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+			(i[r].q = i[r].q || []).push(arguments)
+		}, i[r].l = 1 * new Date(); a = s.createElement(o),
+			m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+		})(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+		ga('create', 'UA-54313520-1', 'auto');
+		ga('send', 'pageview');
 	</script>
 </head>
+
 <body itemscope itemtype="http://schema.org/Blog">
 	<header class="site-header">
 		<a href="/"><img class="picture" src="{{ site.baseurl }}/assets/picture.png" alt="Maciej Mionskowski"></a>
 		<div class="wrap">
-		<a href="/"><h1>{{ site.title }}</h1></a>
-		<nav>
-			<h1 class="visually-hidden">Navigation</h1>
-			<ul>
-			<li><a href="/about">about</a></li>
-			<li><a href="/portfolio">portoflio</a></li>
-		</ul>
-		</nav>
+			<a href="/">
+				<h1>{{ site.title }}</h1>
+			</a>
+			<nav>
+				<h1 class="visually-hidden">Navigation</h1>
+				<ul>
+					<li><a href="/about">about</a></li>
+					<li><a href="/portfolio">portoflio</a></li>
+				</ul>
+			</nav>
 		</div>
-		<a href="{{ "/feed.xml" | prepend: site.baseurl }}" class="icon" style="float:right">r</a>
-	</header>
-	<main>
-		{{ content }}
-	</main>
+		<a href="{{ " /feed.xml " | prepend: site.baseurl }}" class="icon" style="float:right">r</a>
+</header>
+<main>
+	{{ content }}
+</main>
 </body>
+
 </html>
