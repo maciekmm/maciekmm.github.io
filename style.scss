@@ -140,6 +140,23 @@ a {
 			padding-left: 10px;
 			font-weight: 100;
 	}
+
+	@media screen and (max-width: 425px) {
+		text-align: center;
+
+		h1 {
+			font-size: 19pt;
+		}
+
+		.picture {
+			width: 75px;
+			height: 75px;
+		}
+
+		.icon {
+			display: none;
+		}
+	}
 }
 
 main {

@@ -54,7 +54,7 @@ categories:
       - name: AnimatedMOTD
         href: http://web.archive.org/web/20141216205244im_/http://macizun.me/banner2.gif
         tech: ["Java","ReverseEngineering", "DRMs"]
-        excerpt: Multiplatform plugin exploiting minecraft protocol to allow animated motd on client-side serverlist. (Protocol has been patched). Heavily utilizes abstraction to support multiple server engines. 900+ copies sold. <a href="http://docs.macizun.me/en/latest/">Documentation</a>.
+        excerpt: Multiplatform plugin exploiting minecraft protocol to allow animated motd on client-side serverlist. (Protocol has been patched). Heavily utilizes abstraction to support multiple server engines. <a href="http://animatedmotd.readthedocs.io/en/latest/">Documentation</a>.
       - name: Minestats
         href: http://minestats.net
         tech: ["Java","PHP","Bootstrap","Mysql"]
