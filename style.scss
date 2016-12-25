@@ -6,22 +6,6 @@ $background_color: #fff;
 $link_color: lighten(#3498db, 10%);
 
 @font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(https://fonts.gstatic.com/s/lato/v11/1YwB1sO8YE1Lyjf12WNiUA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 700;
-  src: local('Lato Bold'), local('Lato-Bold'), url(https://fonts.gstatic.com/s/lato/v11/H2DMvhDLycM56KNuAtbJYA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
-}
-
-@font-face {
   font-family: 'portfolio';
   src: url('/assets/portfolio.eot?50663028');
   src: url('/assets/portfolio.eot?50663028#iefix') format('embedded-opentype'),
@@ -43,20 +27,20 @@ body, html {
 }
 
 html {
-	font-family: "Lato", "Open Sans", Arial, Helvetica, sans-serif;
 	height: 100%;
-	font-weight: 300;
-	line-height: 1.5;
+	display: flex;
 }
 
 body {
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	text-rendering: optimizeLegibility;
+	font-weight: 300;
+	line-height: 1.5;
+	max-width: 750px;
+	margin: auto;
+	padding: 0.5em 0.2em 0px 0.2em;
 	color: $text_color;
 	background-color: $background_color;
-	max-width: 750px;
-	margin: 10% auto 0 auto;
-	padding: 0 5px;
-	padding-bottom: 10px;
-	font-weight: 300;
 }
 
 a {
@@ -79,10 +63,6 @@ a {
 	-webkit-filter: grayscale(100%);
 }
 
-.lowlight {
-	color: lighten($text_color,50%);
-}
-
 .visually-hidden {
   position: absolute;
   overflow: hidden;
@@ -93,8 +73,12 @@ a {
 
 .site-header {
 	.picture {
-		width: 100px;
-		height: 100px;
+		width: 10vw;
+		height: 10vw;
+		max-width: 100px;
+		min-width: 75px;
+		max-height: 100px;
+		min-height: 75px;
 		border-radius: 100px;
 		display: inline-block;
 		filter: grayscale(60%);
@@ -118,7 +102,7 @@ a {
 	
 	ul {
 		list-style: none;
-		font-size: 16pt;
+		font-size: 1.4em;
 		
 		li {
 			display: inline-block;
@@ -134,24 +118,14 @@ a {
 	}
 	
 	.wrap {
-			display: inline-block;
-			line-height: 1.3;
-			vertical-align: middle;
-			padding-left: 10px;
-			font-weight: 100;
+		display: inline-block;
+		line-height: 1.3;
+		vertical-align: middle;
+		padding-left: 1vw;
 	}
 
 	@media screen and (max-width: 425px) {
 		text-align: center;
-
-		h1 {
-			font-size: 19pt;
-		}
-
-		.picture {
-			width: 75px;
-			height: 75px;
-		}
 
 		.icon {
 			display: none;
@@ -160,33 +134,41 @@ a {
 }
 
 main {
-		font-size: 12pt;
-		padding: 20px;
+		padding: 0 1.2em;
 		line-height: 1.6;
 		
 		h1,h2,h3,h4 {
-			margin-top: 5px;
+			margin-top: 0.5em;
 		}
 		
 		h1 {
-			font-size: 18pt;
+			font-size: 1.6em;
+			margin-bottom: 0.2em;
+			font-weight: 600;
+		}
+
+		article {
+			margin-top: 1.2em;
+		}
+		
+		header {
+			margin: 0.5em 0 0.2em 0;
+			text-align: center;
+			time {
+				color: lighten($text_color, 20%);
+			}
 		}
 		
 		h2 {
-			font-size: 16pt;
+			font-size: 1.4em;
 		}
 		
 		h3 {
-			font-size: 14pt;
-		}
-		
-		ul,ol {
-			list-style-position: outside;
-			margin-left: 20px;
+			font-size: 1.2em;
 		}
 		
 		ul ul, ol ol, ul ol, ol ul {
-			margin-left: 20px;
+			margin-left: 1.5em;
 		}
 
 		time, .cats {
@@ -200,9 +182,8 @@ main {
 			background: lighten($text_color,60%);
 			border-radius: 5px;
 			padding: 1px 5px;
-			font-size: 9pt;
-
-			margin: 3px;
+			font-size: 0.8em;
+			margin: 3px 3px 3px 0;
 		}
 
 		.highlight {
@@ -211,7 +192,7 @@ main {
 			border: 1px solid darken($background_color, 5%);
 			background: darken($background_color, 3%);
 			font-family: monospace;
-			font-size: 10pt;
+			font-size: 0.9em;
 			line-height: 1.4;
 			overflow: auto;
 		}
@@ -233,13 +214,9 @@ main {
 			background: none;
 			border-bottom: 1px solid lighten(#000,85%);
 		}
-		
-		figcaption {
-			font-size: 8pt;
-		}
 
 		#disqus_thread {
-			margin-top: 50px;
+			margin-top: 2em;
 		}
 		
 		code {
@@ -251,9 +228,13 @@ main {
 		}
 		
 		blockquote {
-			padding-left: 5px;
-			border-left: 5px solid darken($background_color,10%);
+			padding-left: 0.5em;
+			border-left: 0.5em solid darken($background_color,10%);
 		}
+}
+
+.pagination {
+	text-align: center;
 }
 
 .portfolio {
@@ -267,17 +248,17 @@ main {
 		width: 50%;
 		display: inline-block;
 		vertical-align: top;
-		padding: 20px 10px;
+		padding: 1em 0.5em;
 		
 		h1{
-			font-size: 16pt;
+			font-size: 1.3em;
 			display: inline;
 			vertical-align: middle;
 		}
 		
 		footer {
 			color: lighten($text_color, 10%);
-			font-size: 10pt;
+			font-size: 0.8em;
 		}
 		
 		@media screen and (max-width: 600px) {

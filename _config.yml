@@ -11,6 +11,8 @@ email: business@mionskowski.pl
 description: "Maciej maciekmm Mionskowski - Java/Go backend developer"
 baseurl: ""
 url: "https://mionskowski.pl"
+paginate: 3
+paginate_path: "/:num/"
 
 # Build settings
 highlighter: rouge
@@ -29,3 +31,4 @@ redcarpet:
 gems:
   - jekyll-sitemap
   - jekyll-mentions
+  - jekyll-paginate

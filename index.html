@@ -4,7 +4,7 @@ title: Posts
 omit-title-tag: true
 hide-header: true
 ---
-{% for post in site.posts %}
+{% for post in paginator.posts %}
 <article itemscope itemtype="http://schema.org/BlogPosting">
 	<header>
 		<h1 itemprop="name headline">
@@ -22,3 +22,13 @@ hide-header: true
 	</div>
 </article>
 {% endfor %}
+
+<ul class="pagination" role="navigation" aria-labelledby="paginglabel">
+  {% if paginator.previous_page %}
+	 <a href="{{ paginator.previous_page_path }}">« Newer</a>
+  {% endif %}
+  <span class="highlight">{{ paginator.page }}/{{ paginator.total_pages }}</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path }}">Older »</a>
+  {% endif %}
+</ul>
