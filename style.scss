@@ -142,9 +142,9 @@ main {
 		}
 		
 		h1 {
-			font-size: 1.6em;
-			margin-bottom: 0.2em;
-			font-weight: 600;
+			font-size: 1.5em;
+			margin-bottom: 0.1em;
+			font-weight: 300;
 		}
 
 		article {
@@ -152,8 +152,8 @@ main {
 		}
 		
 		header {
-			margin: 0.5em 0 0.2em 0;
-			text-align: center;
+			margin: 0.3em 0 0.1em 0;
+			
 			time {
 				color: lighten($text_color, 20%);
 			}
