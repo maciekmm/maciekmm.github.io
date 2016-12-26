@@ -5,10 +5,8 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="alternate" type="application/atom+xml" title="mionskowski.pl" href="{{ site.url }}/feed.xml">
-	<meta name="description" content="{% if page.excerpt  %}{{ page.excerpt | strip_html}}{% else %}{{ site.description }}{% endif %}">
-	<title>
-		{% if page.omit-title-tag %} {{ site.title |strip_html }}{% else if page.title %}{{ page.title }}{% else %}{{ site.title
-		|strip_html }}{% endif %}</title>
+	<meta name="description" content="{% if page.excerpt  %}{{ page.excerpt | strip_html | replace: '\n', ' ' | strip}}{% else %}{{ site.description }}{% endif %}">
+	<title>{% if page.title == false or page.omit-title-tag == true %}{{ site.title | strip_html }}{% else %}{{ page.title }} - {{site.title}}{% endif %}</title>
 	<link rel="stylesheet" href="{{ site.baseurl }}/style.css">
 	<script type="text/javascript">
 		(function (i, s, o, g, r, a, m) {
