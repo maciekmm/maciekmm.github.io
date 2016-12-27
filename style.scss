@@ -177,6 +177,10 @@ main {
 			vertical-align: middle;
 		}
 
+		.cats { 
+			margin-left: 0.2em;
+		}
+
 		.cats li {
 			display:inline-block;
 			background: lighten($text_color,60%);
