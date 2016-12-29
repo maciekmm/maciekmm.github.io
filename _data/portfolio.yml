@@ -25,6 +25,10 @@ categories:
         tech: ["Java"]
         href: https://github.com/Dynatrace/Dynatrace-CodeLink-Java
         excerpt: An <a href="https://github.com/Dynatrace/Dynatrace-CodeLink-Java">open source</a> library providing an easy to use Java implementation of <a href="https://dynatrace.com">Dynatrace</a> Client's source lookup feature. Developed during 2 months long summer internship at <a href="https://dynatrace.com">Dynatrace</a>.
+      - name: Ściana Płaczu
+        tech: ["Go","Ionic"]
+        href: https://sciana.placzu.pl
+        excerpt: A Hack Heroes Hackathon winning application built to help Poles find available dates of medical services in polish institutions. Provides a concise open api as well as an offline-first progressive web application. <a href="https://github.com/maciekmm/hackheroes-entry">Open source</a>.
   - name: Frontend
     projects:
       - name: VLO Student App
