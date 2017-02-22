@@ -36,7 +36,7 @@ categories:
         tech: ["Go","Javascript","vue.js","Google Apps"]
         excerpt: Student website imitating a native app by using bleeding edge browser APIs and Google Scripts for the backend. I made a <a href="https://maciekmm.net/using-google-apps-scripts-for-a-simple-backend">blog post</a> about the backend architecture.
       - name: CurveSignatures
-        href: https://signatures.cf
+        href: https://github.com/maciekmm/CurveSignatures 
         tech: ["Go"]
         excerpt: 'An <a href="https://github.com/maciekmm/CurveSignatures">open source</a> forum signature generator made for a popular browser game: <a href="https://curvefever.com">CurveFever</a>. Uses <a href="https://code.google.com/p/draw2d/draw2d">Draw2d</a> for image generation, <a href="https://github.com/maciekmm/curveapi">CurveApi</a> as data source.</a>'
   - name: Addons/Extensions

@@ -15,7 +15,7 @@ layout: default
 	{{ content }}
 	</div>
 	<div id="disqus_thread"></div>
-	{{% if page.comments %}}
+	{% if page.comments %}
 	<script>
 	var disqus_config = function () {
 	this.page.url = "{{ site.url }}{{ page.url }}"; // Replace PAGE_URL with your page's canonical URL variable
@@ -31,5 +31,5 @@ layout: default
 	(d.head || d.body).appendChild(s);
 	})();
 	</script>
-	{{% endif %}}
+	{% endif %}
 </article>
