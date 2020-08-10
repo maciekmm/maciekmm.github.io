@@ -1,11 +1,12 @@
 ---
 layout: post
 title:  "Context menu positioning using pure CSS"
-date:   2020-08-01 10:00:00 +0100
+date:   2020-08-12 17:00:00 +0200
 tags:
   - css
   - web
   - contextmenu
+  - ux
 categories:
   - web
 comments: true
@@ -13,16 +14,16 @@ comments: true
 
 # Introduction
 
-I was recently challenged with a pretty common, and frankly a simple problem of positioning a custom context menu. When you DuckDuckGo the [*how to position a context menu*](https://duckduckgo.com/?q=positioning+a+context+menu&t=ffab&ia=web) phrase you will be greeted with solutions that either:
-- [don't consider boundry conditions](https://stackoverflow.com/a/15795450) or
+I was recently challenged with a pretty common, and frankly a simple problem of positioning a custom context menu. When you DuckDuckGo [*how to position a context menu*](https://duckduckgo.com/?q=positioning+a+context+menu&t=ffab&ia=web) phrase you will be greeted with solutions that either:
+- [don't consider boundary conditions](https://stackoverflow.com/a/15795450) or
 - [use javascript to check the conditions and position the menu accordingly](https://stackoverflow.com/a/31354591). 
 
 The issue with the first solution is that it's not great in terms of **User Experience**.
-The second one is okay, but requires measurements and some javascript logic, it is also not responsive to window resizes.
+The second one is okay but requires measurements and some javascript logic, it is also not responsive to window resizes.
 
 # A different approach
 
-After some time spent tinkering I came up with a CSS solution to **calculate the context menu position** which respects the window boundries.
+After some time spent tinkering I came up with a CSS solution to **calculate the context menu position** which respects the window boundaries.
 
 ## TL;DR
 
@@ -112,10 +113,23 @@ Let's focus on the *transform* property:
 }
 ```
 
-actually on the _x_ component, as it's analogous to _y_.
+more specficially on the _translateX_ component, as it's analogous to _translateY_.
 
-```
+```css
 transform: translateX(min(var(--mouse-x), calc(100vw - 100%)))
 ```
 
-# Compatibility
+## Breaking it down
+
+- `translateX` behaves *similarly* to `left` and moves an element along the X-axis.
+  - `min` takes the smaller of two values
+    - `var(--mouse-x)` dereferences a variable, in this case - the mouse position.
+    - `calc` performs a calculation
+      - `100vw` is the viewport's width, or simply put - the page width
+      - `100%` **when used inside a translate, yields the current element width**
+
+So, the `calc(100vw - 100%)` directive returns the page width decreased by the width of the context menu.
+
+What we actually get is a value between `[0, viewport width - context menu width]` describing the `x` position of the context menu. This will not let the menu be positioned at the very edge of the screen.
+
+![Boundaries](downloads/context-menu/boundries.svg)
