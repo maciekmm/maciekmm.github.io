@@ -1,15 +1,16 @@
 ---
 layout: post
-title:  "Context menu positioning using pure CSS"
-date:   2020-08-12 17:00:00 +0200
+title:  "Simple context menu positioning using pure CSS"
+date:   2020-08-11 21:00:00 +0200
 tags:
   - css
   - web
-  - contextmenu
+  - context menu
   - ux
 categories:
   - web
 comments: true
+excerpt: An efficient and simple solution to context menus displaying outside browser window.
 ---
 
 # Introduction
@@ -19,7 +20,7 @@ I was recently challenged with a pretty common, and frankly a simple problem of 
 - [use javascript to check the conditions and position the menu accordingly](https://stackoverflow.com/a/31354591). 
 
 The issue with the first solution is that it's not great in terms of **User Experience**.
-The second one is okay but requires measurements and some javascript logic, it is also not responsive to window resizes.
+The second one is okay but requires measurements and some javascript logic. It is also not responsive to window resizes.
 
 # A different approach
 
@@ -79,7 +80,7 @@ After some time spent tinkering I came up with a CSS solution to **calculate the
 {% capture preview_javascript %}const menu = document.querySelector('#menu');
 // hide the menu
 window.addEventListener('click', event => menu.style.display = 'none')
-// show the menu
+// show the menu when right-clicked
 window.addEventListener('contextmenu', event => {
   event.preventDefault()
   menu.style.setProperty('--mouse-x', event.clientX + 'px')
@@ -119,7 +120,7 @@ more specficially on the _translateX_ component, as it's analogous to _translate
 transform: translateX(min(var(--mouse-x), calc(100vw - 100%)))
 ```
 
-## Breaking it down
+Let's break it down:
 
 - `translateX` behaves *similarly* to `left` and moves an element along the X-axis.
   - `min` takes the smaller of two values
