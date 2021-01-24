@@ -14,22 +14,8 @@ layout: default
 	<div itemprop="articleBody">
 	{{ content }}
 	</div>
-	<div id="disqus_thread"></div>
 	{% if page.comments %}
-	<script>
-	var disqus_config = function () {
-	this.page.url = "{{ site.url }}{{ page.url }}"; // Replace PAGE_URL with your page's canonical URL variable
-	this.page.identifier = "{{ page.id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-	};
-
-	(function() { // DON'T EDIT BELOW THIS LINE
-	var d = document, s = d.createElement('script');
-
-	s.src = '//maciekmm.disqus.com/embed.js';
-
-	s.setAttribute('data-timestamp', +new Date());
-	(d.head || d.body).appendChild(s);
-	})();
-	</script>
+	<div id="comments--popvox" data-url="{{ site.url }}{{ page.url }}" data-theme="light"></div>
+	<script src="https://popvox.dev/embed/build/snippet.js" async></script>
 	{% endif %}
 </article>

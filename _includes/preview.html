@@ -29,6 +29,8 @@
 
 {% assign escaped_content = content | replace: "'", "&#39;" | replace: '"', "&#34;"  %}
 
-<iframe class="code-preview" srcdoc="{{ escaped_content }}">
+<div class="code-preview" {% if include.url %} data-url="{{ include.url }}" {% endif %}>
+<iframe srcdoc="{{ escaped_content }}">
 </iframe>
+</div>
 <!-- <a href="data:text/plain;base64,{{ content | base64_encode }}" >View source</a> -->
