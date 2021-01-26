@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Environment variables in frontend docker images"
+title:  "Environment variables in frontend Docker images"
 date:   2021-01-24 15:00:00 +0100
 tags:
   - docker
@@ -19,7 +19,7 @@ Environment variables are a standard way to parametrize backend containers. For 
 - Simplified environment promotion - deploy an image to staging environment and promote it to production once all tests pass
 - Mitigated risk of deploying improper image to production environment
 
-# How to add an API URL environment variable to frontend docker images?
+# How to add an API URL environment variable to frontend Docker images?
 
 The most common use case for environment variables on the frontend side is to have a customizable backend url for dev, staging and production environments respectively.
 This example is based on a **React** app created using create-react-app. But the examples can be easily ported to *Vue* or even *Next* with slight modifications.
@@ -97,7 +97,7 @@ http {
 
 ## Step 6: Create a `Dockerfile` under `/docker`
 
-We will use multi-stage docker image to reduce the image size. Note that You should bind both `node` and `nginx` images to some version.
+We will use multi-stage Docker image to reduce the image size. Note that You should bind both `node` and `nginx` images to some version.
 
 ```docker
 FROM node:current as build
