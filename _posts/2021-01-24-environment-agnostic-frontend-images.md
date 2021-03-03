@@ -48,9 +48,9 @@ It is important to load the file before loading any other javascript that will u
 
 This is where all image related files will live to reduce clutter in the project root.
 
-## Step 4: Create `env.sh` under `/docker`
+## Step 4: Create `50-substitute-env-variables.sh` under `/docker`
 
-The `env.sh` script will be responsible for substituting environment variables in container **runtime**.
+The `50-substitute-env-variables.sh` script will be responsible for substituting environment variables in container **runtime**. It will utilize a built-in feature in the nginx image that runs scripts from `/docker-entrypoint.d/` directory.
 
 ```bash
 #!/usr/bin/env sh
@@ -65,9 +65,9 @@ cat <<EOF > /usr/share/nginx/html/env.js
 window.env = {};
 window.env.API_HOST = "$API_HOST";
 EOF
-
-exec "$@" # exec actual program, nginx in this case
 ```
+
+Don't forget to make it executable by running `chown +x 50-substitute-env-variables.sh`
 
 ## Step 5: Create `nginx.conf` under `/docker`
 
@@ -115,26 +115,17 @@ RUN npm run build
 
 FROM nginx:alpine
 
-EXPOSE 80
-
 RUN rm -rf /usr/share/nginx/html/*
-
 COPY --from=build /src/build /usr/share/nginx/html/
-
 COPY /docker/nginx.conf /etc/nginx/nginx.conf
-
-COPY /docker/env.sh /
-RUN chmod +x /env.sh
-
-ENTRYPOINT ["/env.sh"]
-CMD ["nginx", "-g", "daemon off;"]
+COPY /docker/50-substitute-env-variables.sh /docker-entrypoint.d/
 ```
 
 At the end of this step the directory structure should look as follows.
 ```
 /app
     /docker
-        env.sh
+        50-substitute-env-variables.sh
         Dockerfile
         nginx.conf
 ```
@@ -172,8 +163,9 @@ docker run --rm -e API_HOST=http://prod.company.com/ -p 8080:80 docker.your-comp
 ```
 
 In case you forget to specify the environment variable the container will exit with:
+
 ```
-/env.sh: line 7: API_HOST: parameter not set
+/docker-entrypoint.d/50-substitute-env-variables.sh: line 7: API_HOST: parameter not set
 ```
 
 You can now access the container under 127.0.0.1:8080.
