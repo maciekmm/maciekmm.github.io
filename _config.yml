@@ -3,7 +3,7 @@ email: business@mionskowski.pl
 description: "Maciej Mionskowski - Software Engineer"
 baseurl: ""
 url: "https://mionskowski.pl"
-paginate: 4
+paginate: 10
 paginate_path: "/:num/"
 
 # Build settings

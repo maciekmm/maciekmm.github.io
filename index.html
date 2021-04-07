@@ -5,22 +5,22 @@ omit-title-tag: true
 hide-header: true
 ---
 {% for post in paginator.posts %}
-<article itemscope itemtype="http://schema.org/BlogPosting">
-	<header>
+<div class="post-list--post">
+	<header class="post--header">
 		<h1 itemprop="name headline">
 			<a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
 		</h1>
 		<time itemprop="datePublished" datetime="{{post.date | date: "%Y-%m-%d"}}">{{ post.date | date: "%b %-d, %Y" }}</time>
-		<ul class="cats" itemprop="keywords">
+		<!-- <ul class="cats" itemprop="keywords">
 			{% for cat in post.tags %}
 				<li>{{ cat }}</li>
 			{% endfor %}
-		</ul>
+		</ul> -->
 	</header>
-	<div itemprop="description">
+	<!-- <div itemprop="description">
 		{{ post.excerpt }}
-	</div>
-</article>
+	</div> -->
+</div>
 {% endfor %}
 
 <ul class="pagination" role="navigation" aria-labelledby="paginglabel">

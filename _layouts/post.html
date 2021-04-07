@@ -11,11 +11,10 @@ layout: default
 		{% endfor %}
 	</ul>
 	</header>
+	<div class="toc">
+		{% include toc.html html=content %} 
+	</div>
 	<div itemprop="articleBody">
 	{{ content }}
 	</div>
-	{% if page.comments %}
-	<div id="comments--popvox" data-url="{{ site.url }}{{ page.url }}" data-theme="light"></div>
-	<script src="https://popvox.dev/embed/build/snippet.js" async></script>
-	{% endif %}
 </article>
