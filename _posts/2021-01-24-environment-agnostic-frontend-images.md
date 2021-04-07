@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Environment variables in frontend Docker images"
+title:  "How to create frontend images with environment variables"
 date:   2021-01-24 15:00:00 +0100
 tags:
   - docker

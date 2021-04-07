@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simple context menu positioning using pure CSS"
+title:  "How to correctly position context menus using pure CSS"
 date:   2020-08-11 21:00:00 +0200
 tags:
   - css
