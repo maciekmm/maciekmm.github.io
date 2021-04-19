@@ -2,13 +2,19 @@
 <!doctype html>
 <html lang="en">
     <style>
-        html, body {height: 100%; width: 100%; overflow: hidden; font-family: sans-serif; }
+        html, body {
+            height: 100%; width: 100%; overflow: hidden; font-family: sans-serif; 
+        }
+
+        body {
+            background: #fff;
+        }
         * {
             box-sizing: border-box;
         }
         body::after {
             content: '{{ include.message | "" }}';
-            color: #bbb;
+            color: var(--text-color);
             position: absolute;
             left: 50%;
             top: 50%;
