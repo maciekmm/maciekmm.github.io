@@ -65,8 +65,8 @@ validate merge request:
   image: 
     name: bufbuild/buf:0.41.0
     entrypoint: [""]
-  only:
-    - merge_requests
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   script:
     - buf breaking --against "${CI_REPOSITORY_URL}#branch=${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
 ```
@@ -104,6 +104,11 @@ lint:
     entrypoint: [""]
   script:
     - buf lint
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
 ```
 
 
@@ -125,11 +130,16 @@ lint:
   stage: lint
   script:
     - buf lint
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS'
+      when: never
+    - if: '$CI_COMMIT_BRANCH'
 
 validate merge request:
   stage: ensure backwards compatibility
-  only:
-    - merge_requests
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
   script:
     - buf breaking --against "${CI_REPOSITORY_URL}#branch=${CI_MERGE_REQUEST_TARGET_BRANCH_NAME}"
 ```
