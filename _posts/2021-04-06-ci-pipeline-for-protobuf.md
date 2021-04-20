@@ -111,6 +111,7 @@ lint:
     - if: '$CI_COMMIT_BRANCH'
 ```
 
+The rules attached to the lint stage will prevent multiple pipelines running for a merge request.
 
 
 # Combining linting with breaking changes detection
