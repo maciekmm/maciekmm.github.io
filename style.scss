@@ -5,17 +5,17 @@
 	--text-color: #114e60;
 	--background-color: #f4eee89c;
 	--link-color: #325288;
+	--accent-color: #325300;
 	--background-color-darker: #ebdfdb;
-	--background-color-darkest: #f5cebe;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
 		--text-color: #dddddd;
-		--background-color: #222831;
-		--link-color: #dddddd;
-		--background-color-darker: #30475e;
-		--background-color-darkest: #333;
+		--background-color: #202040;
+		--link-color: #ff6363;
+		--accent-color: #B4FEE7;
+		--background-color-darker: #543864;
 	}
 }
 
@@ -94,7 +94,7 @@ body {
 
 a {
 	color: var(--link-color);
-	text-decoration: underline;
+	text-decoration: none;
 
 	&:hover, &:focus {
 		text-decoration: underline;
@@ -125,6 +125,8 @@ h1,h2,h3,h4,h5 {
 }
 
 .site-header {
+	margin-bottom: 2em;
+
 	.picture {
 		width: 10vw;
 		height: 10vw;
@@ -139,10 +141,16 @@ h1,h2,h3,h4,h5 {
 		vertical-align: middle;
 	}
 
+	.pronunciation {
+		color: var(--accent-color);
+		padding-left: 2ch;
+		white-space: nowrap;
+	}
+
 	h1 {
 		display: inline-block;
 		vertical-align: middle;
-		font-weight: 400;
+		font-weight: 800;
 		// font-family: sans-serif;
 	}
 
@@ -157,7 +165,7 @@ h1,h2,h3,h4,h5 {
 	
 	ul {
 		list-style: none;
-		font-size: 1.4em;
+		font-size: 1.1em;
 		
 		li {
 			display: inline-block;
@@ -179,7 +187,7 @@ h1,h2,h3,h4,h5 {
 		padding-left: 1vw;
 	}
 
-	@media screen and (max-width: 425px) {
+	@media screen and (max-width: 560px) {
 		text-align: center;
 
 		.icon {
@@ -191,12 +199,13 @@ h1,h2,h3,h4,h5 {
 main {
 		padding: 0 1.2em;
 		line-height: 1.6;
+
 		
 		h1,h2,h3,h4 {
 			margin-top: 0;
 			font-weight: 400;
 		}
-		
+
 		h1 {
 			font-size: 1.5em;
 			margin-bottom: 0.1em;
@@ -211,7 +220,7 @@ main {
 		}
 		
 		header {
-			margin: 0.3em 0 0.1em 0;
+			margin: 0 0 0.1em 0;
 			
 			time {
 				color: var(--text-color);
@@ -219,6 +228,7 @@ main {
 
 			h1 {
 				font-size: 1.7em;
+				font-weight: 800;
 			}
 		}
 		
@@ -308,6 +318,12 @@ main {
 
 .post-list--post {
 	margin-top: 1em;
+
+	a {
+		&:link, &:visited, &:hover {
+			color: var(--text-color);
+		}
+	}
 
 	h1 {
 		font-size: 1.1em;
