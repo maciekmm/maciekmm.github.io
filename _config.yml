@@ -6,6 +6,17 @@ url: "https://mionskowski.pl"
 paginate: 10
 paginate_path: "/:num/"
 
+collections:
+  tils:
+    output: true
+    permalink: /:collection/:name
+
+defaults:
+  - scope:
+      path: "tils/*"
+    values:
+      type: til
+
 # Build settings
 highlighter: rouge
 markdown: kramdown

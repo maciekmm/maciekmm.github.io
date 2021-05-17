@@ -3,8 +3,8 @@
 
 :root {
 	--text-color: #114e60;
-	--background-color: #f4eee89c;
-	--link-color: #325288;
+	--background-color: #ffffff9c;
+	--link-color: #0c5ae0;
 	--accent-color: #325300;
 	--background-color-darker: #ebdfdb;
 }
@@ -142,9 +142,10 @@ h1,h2,h3,h4,h5 {
 	}
 
 	.pronunciation {
-		color: var(--accent-color);
+		// color: var);
 		padding-left: 2ch;
 		white-space: nowrap;
+		font-size: 0.8em;
 	}
 
 	h1 {
@@ -175,8 +176,9 @@ h1,h2,h3,h4,h5 {
 		a {
 			&::before {
 				content:'»';
+				margin-right: 0.2ch;
+				color: var(--link-color);
 			}
-			color: var(--text-color);
 		}
 	}
 	
@@ -227,8 +229,8 @@ main {
 			}
 
 			h1 {
-				font-size: 1.7em;
-				font-weight: 800;
+				font-size: 1.8em;
+				font-weight: 400;
 			}
 		}
 		
@@ -316,12 +318,27 @@ main {
 		}
 }
 
+.til--header {
+	margin-bottom: 1em;
+}
+
+a:hover .hover-underline, a:focus .hover-underline {
+	text-decoration: underline;
+}
+
 .post-list--post {
-	margin-top: 1em;
+	margin-top: 0.8em;
 
 	a {
-		&:link, &:visited, &:hover {
-			color: var(--text-color);
+		&::before {
+			content:'»';
+			margin-right: 0.2ch;
+			color: var(--link-color);
+			overflow: hidden;
+		}
+		color: var(--text-color);
+		&:hover, &:focus {
+			text-decoration: none;
 		}
 	}
 
@@ -409,6 +426,16 @@ main {
 	text-align: center;
 	font-size: 8pt;
 	padding: 5px;
+}
+
+.til--container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	.til--item {
+		margin-right: 30px;
+	}
 }
 
 .hll { background-color: #ffffcc }
