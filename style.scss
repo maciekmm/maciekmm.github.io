@@ -429,13 +429,9 @@ a:hover .hover-underline, a:focus .hover-underline {
 }
 
 .til--container {
-	display: flex;
-	flex-wrap: wrap;
-	flex-direction: row-reverse;
-	justify-content: flex-end;
-
 	.til--item {
 		margin-right: 30px;
+		white-space: nowrap;
 	}
 }
 

@@ -36,7 +36,7 @@ hide-header: true
 
 <h1>Today I Learned</h1>
 <aside class="til--container">
-	{% for til in site.tils %}
+	{% for til in site.tils reversed %}
 	<a class="til--item" href="{{ til.url }}">{{ til.date | date: "%b %-d, %Y" }}</a>
 	{% endfor %}
 </aside>
