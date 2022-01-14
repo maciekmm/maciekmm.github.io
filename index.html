@@ -33,10 +33,3 @@ hide-header: true
     <a href="{{ paginator.next_page_path }}">Older »</a>
   {% endif %}
 </ul>
-
-<h1>Today I Learned</h1>
-<aside class="til--container">
-	{% for til in site.tils reversed %}
-	<a class="til--item" href="{{ til.url }}">{{ til.date | date: "%b %-d, %Y" }}</a>
-	{% endfor %}
-</aside>
